@@ -1,0 +1,22 @@
+{
+  "name": "stok",
+  "version": "0.0.1",
+  "description": "An app for making lists of things you want to buy",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "restify": "*",
+    "mongoose": "*"
+  },
+  "devDependencies": {
+    "livereload": "*",
+    "gulp": "*",
+    "gulp-livereload": "*",
+    "gulp-rename": "*",
+    "gulp-myth": "*"
+  }
+}
