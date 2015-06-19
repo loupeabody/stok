@@ -1,6 +1,6 @@
 :root {
-  --bg: tomato;
-  --bg_trans: rgba(255,99,71,0.55);
+  --bg: cyan;
+  --bg_trans: rgba(0,255,255,0.2);
 }
 
 /* 
@@ -149,13 +149,13 @@ body { background: var(--bg); }
   position: relative;
   width: 320px;
   padding: 0;
-  margin: 0 auto 20px; 
+  margin: 0 auto 25px; 
   background: var(--bg_trans);
 }
 .item-img { 
   position: relative;
   width: 100%;
-  margin: 0 0 5px 0;
+  margin: 0 0 10px 0;
   filter: brightness(2);
   filter: grayscale(1);
   z-index: -1;
@@ -168,9 +168,12 @@ body { background: var(--bg); }
 .item-buy { 
   display: inline;
 }
+
+/* control width, change markup too */
 .item-manufacturer { font: 700 16px/16px 'Montserrat', sans-serif; }
 .item-manufacturer:after { content: ' -'; }
 .item-name { font: 700 16px/16px 'Montserrat', sans-serif;  }
+
 .item-link { 
   position: relative;
   float: right;

@@ -17,7 +17,7 @@ body {
 }
 
 body {
-  background: tomato;
+  background: cyan;
 }
 
 .cf:before,
@@ -73,7 +73,7 @@ body {
 .collect-submit,
 .list-add {
   padding: 3px 6px;
-  color: tomato;
+  color: cyan;
   background: #131313;
   font: 700 14px 'Montserrat', sans-serif;
   border: none;
@@ -163,14 +163,14 @@ body {
   position: relative;
   width: 320px;
   padding: 0;
-  margin: 0 auto 20px;
-  background: rgba(255,99,71,0.55);
+  margin: 0 auto 25px;
+  background: rgba(0,255,255,0.2);
 }
 
 .item-img {
   position: relative;
   width: 100%;
-  margin: 0 0 5px 0;
+  margin: 0 0 10px 0;
   -webkit-filter: brightness(2);
   filter: brightness(2);
   -webkit-filter: grayscale(1);
@@ -185,6 +185,8 @@ body {
 .item-buy {
   display: inline;
 }
+
+/* control width, change markup too */
 
 .item-manufacturer {
   font: 700 16px/16px 'Montserrat', sans-serif;
@@ -217,7 +219,7 @@ body {
 
 .item-buy {
   padding: 1px 5px 1px 4px;
-  color: tomato;
+  color: cyan;
   background: #131313;
   border-radius: 0 2px 2px 0;
   border: 3px solid #131313;
@@ -248,7 +250,7 @@ body {
 
 .collect-label {
   padding: 1px 10px 2px;
-  color: tomato;
+  color: cyan;
   background: #131313;
   font: 700 12px 'Montserrat', sans-serif;
 }
@@ -259,7 +261,7 @@ body {
   border-left: 3px solid #131313;
   border-right: 3px solid #131313;
   border-bottom: 3px solid #131313;
-  background: tomato;
+  background: cyan;
   font: 400 16px 'Montserrat', sans-serif;
 }
 
