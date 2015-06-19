@@ -5,30 +5,60 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>stok</title>
-    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic|Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link rel='stylesheet' href='css/style.css'>
   </head>
   <body>
     <header class="header cf">
       <h1 class="header-logo">stok</h1>
       <nav class="header-nav">
-        <button class="header-add">&plus; add list</button>
+        <button class="header-add">&plus; list</button>
       </nav>
     </header>
 
-    <div class="list" href="javascript:void(0)">
+    <div class="list">
       <h1 class="list-name"><a class="list-link" href="javascript:void(0)">All-in-One Bag</a></h1>
-      <p class="list-total">$4836</p>
-      <p class="list-count">23 items</p>
-      <a class="list-inflect" href="javascript:void(0)">&raquo;</a>
+      <p class="list-notes"><span class="list-total">$4836</span><span class="list-seperator">&middot;</span><span class="list-count">23 items</span></p>
+      <a class="list-inflect" href="javascript:void(0)">&rsaquo;</a>
     </div>
 
     <div class="item">
       <img class="item-img" src="img/gr1.jpg">
       <p class="item-manufacturer">GORUCK</p>
       <p class="item-name">GR1</p>
-      <a class="item-link" href="http://www.goruck.com/gr1-black-/p/GEAR-000066"><span class="item-price">$295</span><span class="item-buy">buy</span></a>
+      <a class="item-link" href="http://www.goruck.com/gr1-black-/p/GEAR-000066" target="_blank"><span class="item-price">$295</span><span class="item-buy">buy</span></a>
+    </div>    
+
+    <div class="item">
+      <img class="item-img" src="img/spa_pouch.jpg">
+      <p class="item-manufacturer">C&ocirc;te&amp;Ciel</p>
+      <p class="item-name">Spa Pouch</p>
+      <a class="item-link" href="http://www.coteetciel.com/en-US/beautycase-toiletery-bag-lagoon-spa-pouch-black-currant-small-neoprene-travel" target="_blank"><span class="item-price">$115</span><span class="item-buy">buy</span></a>
     </div>
+
+    <div class="list--top cf">
+      <h1 class="list-name"><a class="list-link" href="javascript:void(0)">All-in-One Bag</a></h1>
+      <p class="list-notes"><span class="list-total">$4836</span><span class="list-seperator">&middot;</span><span class="list-count">23 items</span></p> 
+      <button class="list-add">&plus; item</button>
+    </div>
+
+    <form class="collect cf">
+      <label class="collect-label">Title</label>
+      <input class="collect-input" type="text" placeholder="name your new list">
+      <input class="collect-submit" type="submit" value="Create List">
+    </form>
+
+    <form class="collect cf">
+      <label class="collect-label">Name</label>
+      <input class="collect-input" type="text" placeholder="what's the item called?">
+      <label class="collect-label">Manufacturer</label>
+      <input class="collect-input" type="text" placeholder="who made it?">
+      <label class="collect-label">Price</label>
+      <input class="collect-input" type="text" placeholder="$...">
+      <label class="collect-label">URL</label>
+      <input class="collect-input" type="text" placeholder="buy link to item">
+      <input class="collect-submit" type="submit" value="Add Item">
+    </form>
 
     <ul class="checklist">
       <li>[x] setup codeguide.co and responsive meta</li>
@@ -36,9 +66,19 @@
       <li>[x] setup gulpfile</li>
       <li>[x] git init and push</li>
       <li>[x] make button styles</li>
-      <li>[x] style views -- first pass</li>
-      <li>[ ] style views -- second pass</li>
+      <li>[x] style views -- 1st pass</li>
+      <li>[ ] style views -- 2nd pass</li>
       <li>[ ] map models and views</li>
+      <li>[ ] style views -- 3rd pass (&amp; refactor)</li>
+      <li>[ ] style views -- 4th pass (breakpoints)</li>
+      <li>[ ] style views -- 5th pass (modules &amp; build)</li>
+      <li>[ ] backbone (AMD) skeleton</li>
+      <li>[ ] wire up mongoose</li>
+      <li>[ ] sketch api w/ restify</li>
+      <li>[ ] write models</li>
+      <li>[ ] write views</li>
+      <li>[ ] test app</li>
     </ul>
+
   </body>
 </html>
