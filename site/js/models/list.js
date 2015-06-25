@@ -1,7 +1,11 @@
 // models, list.js
 
-// Lists {
-//   title: str,
-//   _total: int,
-//   _no: int,
-// }
+define(['underscore','backbone'], function(_,Backbone){
+  var List = Backbone.Model.extend({
+    defaults: {
+      title: ''
+    }
+  });
+
+  return List;
+});

@@ -66,11 +66,14 @@ body {
 .header-nav {
   position: absolute;
   right: 15px;
-  top: 30%;
+  top: 15px;
 }
 
 .header-add,
 .collect-submit,
+.collect-delete,
+.item-edit,
+.list-edit,
 .list-add {
   padding: 3px 6px;
   color: cyan;
@@ -79,6 +82,7 @@ body {
   border: none;
   border-radius: 2px;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .header-add:active,
@@ -113,10 +117,22 @@ body {
   font: 700 24px/24px 'Montserrat', sans-serif;
 }
 
-.list-add {
+.list-add,
+.list-edit {
   position: absolute;
-  top: 15px;
+  top: 25px;
   right: 0;
+  font: 600 12px 'Montserrat', sans-serif;
+  width: 52px;
+}
+
+.list-add {
+  right: 40px;
+}
+
+.list-edit {
+  right: 0;
+  width: 35px;
 }
 
 .list-link {
@@ -164,7 +180,7 @@ body {
   width: 320px;
   padding: 0;
   margin: 0 auto 25px;
-  background: rgba(0,255,255,0.2);
+  background: rgba(0,255,255,0.3);
 }
 
 .item-img {
@@ -227,8 +243,24 @@ body {
 }
 
 .item-link:active,
-.item-link:focus {
+.item-edit:active,
+.item-link:focus,
+.item-edit:focus {
   outline: none;
+}
+
+.item-edit {
+  opacity: 0.3;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: #131313;
+  background: cyan;
+}
+
+.item-edit:hover,
+.item-edit:focus {
+  opacity: 1;
 }
 
 /*
@@ -236,38 +268,48 @@ body {
  */
 
 .collect {
-  position: relative;
-  max-width: 320px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 320px;
   margin: 0 auto 20px;
+  -webkit-transform: translateY(-500%);
+  -ms-transform: translateY(-500%);
+  transform: translateY(-500%);
+  transition: -webkit-transform 700ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
+  transition: transform 700ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
+  z-index: 2;
 }
 
 .collect-label,
 .collect-input {
   display: block;
   width: 100%;
-  border: 3px solid #131313;
 }
 
 .collect-label {
-  padding: 1px 10px 2px;
+  padding: 1px 10px 5px 0;
   color: cyan;
   background: #131313;
-  font: 700 12px 'Montserrat', sans-serif;
+  font: 700 10px 'Montserrat', sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 .collect-input {
   padding: 7px 10px;
+  margin: 0 0 15px 0;
   border: none;
-  border-left: 3px solid #131313;
-  border-right: 3px solid #131313;
-  border-bottom: 3px solid #131313;
+  border-radius: 2px;
   background: cyan;
   font: 400 16px 'Montserrat', sans-serif;
 }
 
 .collect-label:last-child,
 .collect-input:last-child {
-  border-bottom: none;
+  margin: 0;
 }
 
 .collect-input::-webkit-input-placeholder {
@@ -290,13 +332,83 @@ body {
   font: 400 16px 'Montserrat', sans-serif;
 }
 
-.collect-submit {
+.collect-submit,
+.collect-delete {
   float: right;
-  margin: 10px auto 0;
+  margin: 0 auto;
+  border: 2px solid cyan;
+}
+
+.collect-delete {
+  float: left;
+}
+
+.collect-submit:hover,
+.collect-submit:focus,
+.collect-submit:active,
+.collect-delete:hover,
+.collect-delete:focus,
+.collect-delete:active,
+.collect-close:hover,
+.collect-close:focus,
+.collect-close:active {
+  border: none;
+  padding: 5px 8px;
+  background: cyan;
+  color: #131313;
 }
 
 .collect-input,
-.collect-focus,
-.collect-submit {
+.collect-input:focus,
+.collect-submit,
+.collect-submit:focus {
   outline: none;
+}
+
+.collect-close {
+  position: absolute;
+  top: -25px;
+  right: 0;
+  padding: 1px 4px 0;
+  border-radius: 100%;
+  border: 2px solid cyan;
+  color: cyan;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.collect-close:hover,
+.collect-close:focus,
+.collect-close:active {
+  padding: 2px 6px 2px;
+}
+
+/* 
+ *  modal 
+ */
+
+.modal:before {
+  content: "";
+  display: none;
+  background: #131313;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.modal:target:before {
+  display: block;
+}
+
+.modal:target .collect {
+  -webkit-transform: translate(0,0);
+  -ms-transform: translate(0,0);
+  transform: translate(0,0);
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }

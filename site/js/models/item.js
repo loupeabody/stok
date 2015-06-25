@@ -1,9 +1,15 @@
 // models, item.js
 
-// Items {
-//   name: str,
-//   manufacturer: str,
-//   price: str,
-//   url: str,
-//   img: str
-// }
+define(['underscore','backbone'], function(_,Backbone){
+  var Item = Backbone.Model.extend({
+    defaults: {
+      name: '',
+      manufacturer: '',
+      price: '',
+      url: '',
+      img: ''
+    }
+  });
+
+  return Item;
+});

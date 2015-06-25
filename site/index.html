@@ -12,7 +12,7 @@
     <header class="header cf">
       <h1 class="header-logo">stok</h1>
       <nav class="header-nav">
-        <button class="header-add">&plus; list</button>
+        <a class="header-add" href="#list-modal">&plus; list</a>
       </nav>
     </header>
 
@@ -27,6 +27,7 @@
       <p class="item-manufacturer">GORUCK</p>
       <p class="item-name">GR1</p>
       <a class="item-link" href="http://www.goruck.com/gr1-black-/p/GEAR-000066" target="_blank"><span class="item-price">$295</span><span class="item-buy">buy</span></a>
+      <a class="item-edit" href="#item-modal">edit</a>
     </div>    
 
     <div class="item">
@@ -34,6 +35,7 @@
       <p class="item-manufacturer">C&ocirc;te&amp;Ciel</p>
       <p class="item-name">Spa Pouch</p>
       <a class="item-link" href="http://www.coteetciel.com/en-US/beautycase-toiletery-bag-lagoon-spa-pouch-black-currant-small-neoprene-travel" target="_blank"><span class="item-price">$115</span><span class="item-buy">buy</span></a>
+      <a class="item-edit" href="#item-modal">edit</a>
     </div>
 
     <div class="item">
@@ -41,34 +43,43 @@
       <p class="item-manufacturer">HHKB</p>
       <p class="item-name">Professional 2</p>
       <a class="item-link" href="https://elitekeyboards.com/products.php?sub=pfu_keyboards,hhkbpro2&pid=pdkb400b" target="_blank"><span class="item-price">$235</span><span class="item-buy">buy</span></a>
+      <a class="item-edit" href="#item-modal">edit</a>
     </div>
-
 
     <div class="list--top cf">
       <h1 class="list-name"><a class="list-link" href="javascript:void(0)">All-in-One Bag</a></h1>
       <p class="list-notes"><span class="list-total">$4836</span><span class="list-seperator">&middot;</span><span class="list-count">23 items</span></p> 
-      <button class="list-add">&plus; item</button>
+      <a class="list-add" href="#item-modal">&plus; item</a>
+      <a class="list-edit" href="#list-modal">edit</a>
     </div>
 
-    <form class="collect cf">
-      <label class="collect-label">Title</label>
-      <input class="collect-input" type="text" placeholder="name your new list">
-      <input class="collect-submit" type="submit" value="Create List">
-    </form>
+    <div class="modal" id="list-modal">
+      <form class="collect cf">
+        <label class="collect-label">Title</label>
+        <input class="collect-input" type="text" placeholder="name your new list">
+        <input class="collect-submit" type="submit" value="&plus; list">
+        <button class="collect-delete">delete</button>
+        <a class="collect-close" href="javascript:void(0)">&times;</a>
+      </form>
+    </div>
 
-    <form class="collect cf">
-      <label class="collect-label">Name</label>
-      <input class="collect-input" type="text" placeholder="what's the item called?">
-      <label class="collect-label">Manufacturer</label>
-      <input class="collect-input" type="text" placeholder="who made it?">
-      <label class="collect-label">Price</label>
-      <input class="collect-input" type="text" placeholder="just numbers, omit the '$'">
-      <label class="collect-label">URL</label>
-      <input class="collect-input" type="text" placeholder="buy link to item">
-      <label class="collect-label">IMG</label>
-      <input class="collect-input" type="text" placeholder="link to item image">
-      <input class="collect-submit" type="submit" value="Add Item">
-    </form>
+    <div class="modal" id="item-modal">
+      <form class="collect cf">
+        <label class="collect-label">Name</label>
+        <input class="collect-input" type="text" placeholder="what's the item called?">
+        <label class="collect-label">Manufacturer</label>
+        <input class="collect-input" type="text" placeholder="who made it?">
+        <label class="collect-label">Price</label>
+        <input class="collect-input" type="text" placeholder="rough dollar value, omit the '$'">
+        <label class="collect-label">URL</label>
+        <input class="collect-input" type="text" placeholder="buy link to item">
+        <label class="collect-label">IMG</label>
+        <input class="collect-input" type="text" placeholder="link to item image">
+        <input class="collect-submit" type="submit" value="&plus; Item">
+        <button class="collect-delete">delete</button>
+        <a class="collect-close" href="javascript:void(0)">&times;</a>
+      </form>
+    </div>
 
     <ul class="checklist">
       <li>[x] setup codeguide.co and responsive meta</li>
@@ -79,12 +90,12 @@
       <li>[x] style views -- 1st pass</li>
       <li>[x] style views -- 2nd pass</li>
       <li>[x] map models and views</li>
+      <li>[x] backbone (AMD) skeleton</li>
+      <li>[x] style views -- 3rd pass (more view stuff)</li>
+      <li>[ ] style views -- 4th pass (breakpoints)</li>
       <li>[ ] write models</li>
       <li>[ ] write views</li>
-      <li>[ ] style views -- 3rd pass (&amp; refactor)</li>
-      <li>[ ] style views -- 4th pass (breakpoints)</li>
-      <li>[ ] style views -- 5th pass (modules &amp; build)</li>
-      <li>[ ] backbone (AMD) skeleton</li>
+      <li>[ ] write router</li>
       <li>[ ] test app</li>
     </ul>
 
