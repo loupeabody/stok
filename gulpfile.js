@@ -13,6 +13,10 @@ gulp.task('default', function() {
     return gulp.src('./site/*.html')
       .pipe(livereload());
   });
+  gulp.watch('./site/js/**/*.js', function(e) {
+    return gulp.src('./site/js/**/*.js')
+      .pipe(livereload());
+  });
 });
 
 gulp.task('css:dev', function(){

@@ -56,6 +56,11 @@ body {
   border-bottom: 3px solid #131313;
 }
 
+.header-wrap {
+  position: relative;
+  margin: 0 auto;
+}
+
 .header-logo {
   display: inline-block;
   margin: 0 20px 0 0;
@@ -66,10 +71,11 @@ body {
 .header-nav {
   position: absolute;
   right: 15px;
-  top: 15px;
+  top: 6px;
 }
 
 .header-add,
+.header-add--back,
 .collect-submit,
 .collect-delete,
 .item-edit,
@@ -90,6 +96,22 @@ body {
   outline: none;
 }
 
+.header-add--back {
+  border: 2px solid #131313;
+  background: cyan;
+  color: #131313;
+}
+
+/*
+ * content-wrap
+ */
+
+.content-wrap {
+  position: relative;
+  width: 320px;
+  margin: 0 auto;
+}
+
 /*
  *  list
  */
@@ -102,6 +124,10 @@ body {
   margin: 0 auto 20px;
   border-radius: 2px;
   border: 3px solid #131313;
+}
+
+.list {
+  box-shadow: 4px 4px 0 rgba(0,0,0,0.5);
 }
 
 .list--top {
@@ -411,4 +437,36 @@ body {
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
+}
+
+/*
+ *  breakpoints
+ */
+
+@media screen and (min-width: 700px) {
+  .list--top,
+  .header-wrap,
+  .content-wrap {
+    width: 665px;
+  }
+
+  .list {
+    margin: 0 0 25px 0;
+  }
+
+  .header {
+    padding: 10px 0;
+  }
+
+  .header-nav {
+    right: 0;
+  }
+}
+
+@media screen and (min-width: 1100px) {
+  .list--top,
+  .header-wrap,
+  .content-wrap {
+    width: 1010px;
+  }
 }
