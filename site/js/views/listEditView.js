@@ -1,6 +1,6 @@
 // views, listEditView.js
 
-require([
+define([
   'underscore',
   'jquery',
   'backbone',

@@ -1,31 +1,32 @@
 // view, itemView.js
 
-require([
-  'underscore',
+define([
   'jquery',
+  'underscore',
   'backbone',
   'text!templates/itemViewTemplate.html'],
-  function(_,$,Backbone,itemViewTemplate) {
+  function($,_,Backbone,itemViewTemplate) {
 
     var itemView = Backbone.View.extend({
       tagName: 'div',
       className: 'item',
       template: _.template(itemViewTemplate),
-      events: {
-        'click .edit': showEditView
-      },
+      // events: {
+      //   'click .item-edit': 'showEditView'
+      // },
       initialize: function() {
-        // model events
+        this.render();
+        this.listenTo(this.model, 'change', this.render);
       },
       render: function() {
         this.$el.html(this.template(this.model.attributes));
         return this;
-      },
-      showEditView: function() {}
+      }
+      // showEditView: function() {}
       // This will ~generate~ an itemEditView
       // which will try to use existing data, 
       // if any, to fill placeholders
     });
 
-  return itemView;
+    return itemView;
 });

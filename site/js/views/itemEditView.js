@@ -1,6 +1,6 @@
 // view, itemEditView.js
 
-require([
+define([
   'underscore',
   'jquery',
   'backbone',

@@ -1,6 +1,6 @@
 // views, listTopView.js
 
-require([
+define([
   'underscore',
   'jquery',
   'backbone',
