@@ -5,28 +5,46 @@ define([
   'jquery',
   'backbone',
   'text!templates/itemEditViewTemplate.html'],
-  function(_,$,Backbone,itemEditViewTemplate) {
+  function(_,$,Backbone,itemEdit) {
 
-    var itemEditView = Backbone.extend.View({
-      tagName: 'form',
-      className: 'collect cf',
-      template: _.template(itemEditViewTemplate),
+    var itemEditView = Backbone.View.extend({
+      tagName: 'div',
+      className: 'modal',
+      template: _.template(itemEdit),
       events: {
-        'click .collect-submit': updateItem
-        // no validation, upsert, HTTP PUT
-        // cancel or close
-        // delete...!
+        'click .collect-submit'   : 'updateItem',
+        'click .collect-close'    : 'closeEditView',
+        'click .collect-delete'   : 'deleteItem'
       },
       initialize: function() {
         // model events
+        this.render();
       },
       render: function() {
-        this.$el.html(this.template(this.model.attributes));
+        if (this.model) {
+          this.$el.html(this.template(this.model.attributes));
+        } else {
+          // render without model
+          this.$el.html(this.template());
+        }
         return this;
       },
-      updateItem: function() {}
-      // Upsert new attributes (input vals)
-      // with save; no validation initially...
+      updateItem: function() {
+        var inputs = this.getinputs();
+      },
+      getInputs: function() {},
+      deleteItem: function(e) {
+        e.preventDefault();
+        if (this.model) {
+          // HTTP delete model
+        }
+      },
+      closeEditView: function(e) {
+        e.preventDefault();
+        $('body').remove('.modal');
+        this.remove();
+        window.history.back();
+      }
     });
 
     return itemEditView;

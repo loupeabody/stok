@@ -1,10 +1,20 @@
 // collections, lists.js
 
-// listCollection {
-//   model: list,
-//   localStorage: ..,
-//   items?: [of items]
-// }
+define([
+  'jquery',
+  'underscore',
+  'backbone',
+  'localStorage',
+  'models/list'
+  ],
+  function($,_,Backbone,Store,List) {
 
-// Logic:
-// Events:
+    var Lists = Backbone.Collection.extend({
+      model: List,
+      localStorage: new Backbone.LocalStorage('stok-lists')
+    });
+
+    var stokLists = new Lists();
+
+    return stokLists;
+});

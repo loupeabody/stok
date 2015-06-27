@@ -11,7 +11,8 @@ define([
         manufacturer: '',
         price: 0,
         url: '',
-        img: ''
+        img: '',
+        list: '' 
       }
     });
 

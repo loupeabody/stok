@@ -1,9 +1,20 @@
 // collections, items.js
 
-// itemCollection {
-//   model: item,
-//   localstorage: ..
-// }
+define([
+  'jquery',
+  'underscore',
+  'backbone',
+  'localStorage',
+  'models/item'
+  ],
+  function($,_,Backbone,Store,Item) {
 
-// Logic:
-// Events:
+    var Items = Backbone.Collection.extend({
+      model: Item,
+      localStorage: new Backbone.LocalStorage('stok-items')
+    });
+
+    var stokItems = new Items();
+
+    return stokItems;
+});

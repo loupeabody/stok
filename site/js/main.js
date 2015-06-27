@@ -5,6 +5,7 @@ require.config({
     'underscore': 'libs/underscore/underscore.min',
     'backbone': 'libs/backbone/backbone-min',
     'localStorage': 'libs/backbone/backbone.localStorage',
+    'associate': 'libs/backbone/backbone.associate',
     'masonry': 'libs/masonry/masonry.pkgd.min',
     'text': 'libs/require/text'
   },
@@ -15,29 +16,65 @@ require.config({
       deps: ['underscore', 'jquery'],
       exports: 'Backbone'
     },
-    'masonry': { exports: 'Masonry' },
-    'localStorage': { exports: 'Store' }
+    'localStorage': { exports: 'Store' },
+    'associate': { exports: 'Backbone' },
+    'masonry': { exports: 'Masonry' }
   }
-});
-
-// Initialize and Configure Masonry
-require(['masonry'], function(Masonry){
-  var grid = document.querySelector('.content-wrap'),
-  msnry = new Masonry(grid, {
-    itemSelector: '.list, .item',
-    columnwidth: 320,
-    "gutter": 25,
-    transitionDuration: 0
-  });
 });
 
 // Test Item Model and View
 require([
   'models/item',
   'models/list',
+  'collections/lists',
+  'collections/items',
   'views/itemView',
-  'views/listView'],
-  function(Item,List,itemView,listView) {
+  'views/listView',
+  'router/router'],
+  function(
+    Item,
+    List,
+    stokLists,
+    stokItems,
+    itemView,
+    listView,
+    Workspace) {  
+
+    // Make Defaul List!!!
+    stokLists.create({title: 'All-In-One Bag'});
+    // Make Default Items!!!
+    var fixtureListId = stokLists.get('c1').cid;
+    stokItems.add({
+      name: 'GR1',
+      manufacturer: 'GORUCK',
+      price: 295,
+      url: 'http://www.goruck.com/gr1-black-/p/GEAR-000066',
+      img: 'img/gr1.jpg',
+      list: fixtureListId
+    });
+    stokItems.add({
+      name: 'Spa Pouch',
+      manufacturer: 'C&ocirc;te&amp;Ciel',
+      price: 115,
+      url: 'http://www.coteetciel.com/en-US/beautycase-toiletery-bag-lagoon-spa-pouch-black-currant-small-neoprene-travel',
+      img: 'img/spa_pouch.jpg',
+      list: fixtureListId
+    });
+    stokItems.add({
+      name: 'Professional 2',
+      manufacturer: 'HHKB',
+      price: 235,
+      url: 'https://elitekeyboards.com/products.php?sub=pfu_keyboards,hhkbpro2&pid=pdkb400b',
+      img: 'img/hhkbII.jpg',
+      list: fixtureListId
+    });
+
+    // localStorage.clear();
+    console.log(stokLists);
+    console.log(stokItems);
+
+    var stokRouter = new Workspace();
+    Backbone.history.start();
 
     // var bagItem = new Item({
     //   name: 'GR1',
@@ -51,10 +88,38 @@ require([
 
     // $('.content-wrap').append(bagItemView.$el);
 
-    var bagList = new List({
-      name: 'All-in-One-Bag'
-    });
+    // var bagList = new List({
+    //   name: 'All-in-One-Bag'
+    // });
 
-    var bagListView = new listView({model: bagList});
-    $('.content-wrap').append(bagListView.$el);
+    // var bagListView = new listView({model: bagList});
+    // $('.content-wrap').append(bagListView.$el);
+
+    // Create the All-in-One-Bag List
+    // including its associated model
+
+    // var bagItems = new Items([
+    //     {
+    //       name: 'GR1',
+    //       manufacturer: 'GORUCK',
+    //       price: 295,
+    //       url: 'http://www.goruck.com/gr1-black-/p/GEAR-000066',
+    //       img: 'img/gr1.jpg'
+    //     },
+    //     {
+    //       name: 'Spa Pouch',
+    //       manufacturer: 'C&ocirc;te&amp;Ciel',
+    //       price: 115,
+    //       url: 'http://www.coteetciel.com/en-US/beautycase-toiletery-bag-lagoon-spa-pouch-black-currant-small-neoprene-travel',
+    //       img: 'img/spa_pouch.jpg'
+    //     }, 
+    //     {
+    //       name: 'Professional 2',
+    //       manufacturer: 'HHKB',
+    //       price: 235,
+    //       url: 'https://elitekeyboards.com/products.php?sub=pfu_keyboards,hhkbpro2&pid=pdkb400b',
+    //       img: 'img/hhkbII.jpg'
+    //     }
+    //   ]);
+
 });

@@ -12,7 +12,7 @@ define([
       className: 'list--top cf',
       template: _.template(listViewTopTemplate),
       events: {
-        'click .list-add': addItem
+        'click .list-add': showItemAddView
       },
       initialize: function() {
         // model events
@@ -21,7 +21,7 @@ define([
         this.$el.html(this.template(this.model.attributes));
         return this;
       },
-      addItem: function() {}
+      showItemAddView: function() {}
       // Add item to ~current~ collection
     });
 

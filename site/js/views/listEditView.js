@@ -4,28 +4,47 @@ define([
   'underscore',
   'jquery',
   'backbone',
-  'text!templates/itemEditViewTemplate.html'],
-  function(_,$,Backbone,itemEditViewTemplate) {
+  'text!templates/listEditViewTemplate.html'],
+  function(_,$,Backbone,listEdit) {
 
-    var listEditView = Backbone.extend.View({
-      tagName: 'form',
-      className: 'collect cf',
-      template: _.template(listEditViewTemplate),
+    var listEditView = Backbone.View.extend({
+      tagName: 'div',
+      className: 'modal',
+      template: _.template(listEdit),
       events: {
-        'click .collect-submit': updateList
-        // cancel or close
-        // delete...!
+        'click .collect-submit'   : 'updateList',
+        'click .collect-close'    : 'closeEditView',
+        'click .collect-delete'   : 'deleteList'
       },
       initialize: function() {
         // model events
+        this.render();
       },
       render: function() {
-        this.$el.html(this.template(this.model.attributes));
+        if (this.model) {
+          this.$el.html(this.template(this.model.attributes));
+        } else {
+          // render without model 
+          this.$el.html(this.template());
+        }
         return this;
       },
-      updateList: function() {}
-      // Upsert new title (input val)
-      // with save; no validation initially...
+      updateList: function() {
+        var inputs = this.getTitle();
+      },
+      deleteList: function(e) {
+        e.preventDefault();
+        if (this.model) {
+          // HTTP delete model 
+        }
+      },
+      getTitle: function() {},
+      closeEditView: function(e) {
+        e.preventDefault();
+        $('body').remove('.modal');
+        this.remove();
+        window.history.back();
+      }
     });
 
     return listEditView;
