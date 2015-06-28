@@ -11,25 +11,14 @@ define([
       tagName: 'div',
       className: 'list',
       template: _.template(listViewTemplate),
-      // events: {
-      //   'click': gotoList,
-      //   'click .edit': showEditView
-      // },
       initialize: function() {
         this.render();
         this.listenTo(this.model, 'change', this.render);
-        this.listenTo(this.model, 'change', this.generateNotes);
-        // this.model.set('_total',..);
-        // this.model.set('_no',..);
       },
       render: function() {
         this.$el.html(this.template(this.model.attributes));
         return this;
       }
-      // gotoList: function() {},
-      // Route to list, store route... by id...
-      // showEditView: function() {}
-      // Show edit view for ~current~ list
     });
 
     return listView;

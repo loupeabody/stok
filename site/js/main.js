@@ -76,50 +76,5 @@ require([
     var stokRouter = new Workspace();
     Backbone.history.start();
 
-    // var bagItem = new Item({
-    //   name: 'GR1',
-    //   manufacturer: 'GORUCK',
-    //   price: 295,
-    //   url: 'http://www.goruck.com/gr1-black-/p/GEAR-000066',
-    //   img: 'img/gr1.jpg'
-    // });
-
-    // var bagItemView = new itemView({model: bagItem});
-
-    // $('.content-wrap').append(bagItemView.$el);
-
-    // var bagList = new List({
-    //   name: 'All-in-One-Bag'
-    // });
-
-    // var bagListView = new listView({model: bagList});
-    // $('.content-wrap').append(bagListView.$el);
-
-    // Create the All-in-One-Bag List
-    // including its associated model
-
-    // var bagItems = new Items([
-    //     {
-    //       name: 'GR1',
-    //       manufacturer: 'GORUCK',
-    //       price: 295,
-    //       url: 'http://www.goruck.com/gr1-black-/p/GEAR-000066',
-    //       img: 'img/gr1.jpg'
-    //     },
-    //     {
-    //       name: 'Spa Pouch',
-    //       manufacturer: 'C&ocirc;te&amp;Ciel',
-    //       price: 115,
-    //       url: 'http://www.coteetciel.com/en-US/beautycase-toiletery-bag-lagoon-spa-pouch-black-currant-small-neoprene-travel',
-    //       img: 'img/spa_pouch.jpg'
-    //     }, 
-    //     {
-    //       name: 'Professional 2',
-    //       manufacturer: 'HHKB',
-    //       price: 235,
-    //       url: 'https://elitekeyboards.com/products.php?sub=pfu_keyboards,hhkbpro2&pid=pdkb400b',
-    //       img: 'img/hhkbII.jpg'
-    //     }
-    //   ]);
 
 });

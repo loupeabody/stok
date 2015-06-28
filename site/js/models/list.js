@@ -14,9 +14,7 @@ define([
       },
       getitems: function(stokItems) {
         if (this.cid) {
-          return _.find(_.toArray(stokItems), function(item) {
-            return item.list === this.cid;
-          });
+          return stokItems.where({list: this.cid});
         }
       },
       initialize: function() {
@@ -24,18 +22,19 @@ define([
         stokItems.on('update', this.setNotes, this);
       },
       setNotes: function() {
-        var prices = [];
+        var prices = [],
+            items = this.getitems(stokItems);
 
-        _.forEach(_.toArray(stokItems),function(item) {
-          prices.push(item.get('price'));
+        _.forEach(items,function(item) {
+          prices.push(item.attributes.price);
         });
 
         var total = prices.reduce(function(p,c,i,a) {
           return p + c;
-        });
+        },0);
 
         this.set('_no', prices.length);
-        this.set('total', total);
+        this.set('_total', total);
 
       }
     });

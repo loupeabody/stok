@@ -32,28 +32,40 @@ define([
         '*notFound'       : 'getLists'
       },
       getLists: function() {
-        // Revert header-add back to appropriate state
-        var add = this.getHeaderAdd();
+        var add = this.getHeaderAdd(),
+            wrap = $('.content-wrap'),
+            existingViews = wrap.find('.list, .item');
       
+        // Revert header-add back to appropriate state
         if (add.className == 'header-add--back') {
           add.className = 'header-add';
           add.href = '#lists/add';
           add.innerHTML = '&plus; list';
         }
 
-        // stokLists.fetch();
+        // Reset Masonry and remove any existing views
+        if (existingViews) {
+          // Views are only being removed from the DOM
+          // ghost views will cause memory leaks
+          msnry.remove(existingViews);
+          msnry.layout();
+          wrap.empty();
+        }
+
         // Render all list models
         stokLists.each(function(list){
+          console.log('view rendered');
           var buffer = new listView({model:list});
-          $('.content-wrap').append(buffer.$el);
+          wrap.append(buffer.$el);
           msnry.appended(buffer.$el);
         });
 
       },
       getList: function(id) {
-        // Revert header-add back to appropriate state
         var add = this.getHeaderAdd();
 
+
+        // Revert header-add back to appropriate state
         if (add.className == 'header-add') {
           add.className = 'header-add--back';
           add.href = '#lists';
@@ -64,7 +76,6 @@ define([
 
       },
       addList: function() {
-        // create list edit view
         var newList = new listEditView();
         $('body').append(newList.$el);
       },
