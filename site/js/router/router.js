@@ -33,8 +33,7 @@ define([
       },
       getLists: function() {
         var add = this.getHeaderAdd(),
-            wrap = $('.content-wrap'),
-            existingViews = wrap.find('.list, .item');
+            wrap = $('.content-wrap');
       
         // Revert header-add back to appropriate state
         if (add.className == 'header-add--back') {
@@ -44,14 +43,9 @@ define([
         }
 
         // Reset Masonry and remove any existing views
-        if (existingViews) {
-          // Views are only being removed from the DOM
-          // ghost views will cause memory leaks
-          msnry.remove(existingViews);
-          msnry.layout();
-          wrap.empty();
-        }
-
+        Backbone.trigger('refreshListViews');
+        msnry.layout();
+        
         // Render all list models
         stokLists.each(function(list){
           console.log('view rendered');

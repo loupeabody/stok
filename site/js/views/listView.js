@@ -14,6 +14,10 @@ define([
       initialize: function() {
         this.render();
         this.listenTo(this.model, 'change', this.render);
+        // I need to remove these views when the getLists
+        // route is requested...
+        // Use an event aggregator with Backbone object!!
+        Backbone.on('refreshListViews', this.remove, this);
       },
       render: function() {
         this.$el.html(this.template(this.model.attributes));

@@ -20,6 +20,7 @@ define([
       initialize: function() {
         this.setNotes();
         stokItems.on('update', this.setNotes, this);
+        console.log(this);
       },
       setNotes: function() {
         var prices = [],
