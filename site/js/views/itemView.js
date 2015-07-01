@@ -17,6 +17,7 @@ define([
       initialize: function() {
         this.render();
         this.listenTo(this.model, 'change', this.render);
+        this.listenTo(Backbone, 'refreshViews', this.remove);
       },
       render: function() {
         this.$el.html(this.template(this.model.attributes));

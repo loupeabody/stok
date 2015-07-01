@@ -4,21 +4,23 @@ define([
   'underscore',
   'jquery',
   'backbone',
-  'text!templates/listViewTopTemplate.html'],
-  function(_,$,Backbone,listViewTemplate) {
+  'text!templates/listTopViewTemplate.html'],
+  function(_,$,Backbone,listTopViewTemplate) {
 
-    var listTopView = Backbone.extend.View({
+    var listTopView = Backbone.View.extend({
       tagName: 'div',
       className: 'list--top cf',
-      template: _.template(listViewTopTemplate),
+      template: _.template(listTopViewTemplate),
       events: {
-        'click .list-add': showItemAddView
+        'click .list-add': 'showItemAddView'
       },
       initialize: function() {
-        // model events
+        this.render();
+        Backbone.on('refreshViews', this.remove, this);
       },
       render: function() {
-        this.$el.html(this.template(this.model.attributes));
+        var attrCID = _.extend(this.model.toJSON(), {cid: this.model.cid});
+        this.$el.html(this.template(attrCID));
         return this;
       },
       showItemAddView: function() {}

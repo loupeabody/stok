@@ -7,6 +7,7 @@ require.config({
     'localStorage': 'libs/backbone/backbone.localStorage',
     'associate': 'libs/backbone/backbone.associate',
     'masonry': 'libs/masonry/masonry.pkgd.min',
+    'imagesLoaded': 'libs/masonry/imagesLoaded.pkgd',
     'text': 'libs/require/text'
   },
   shims: {
@@ -18,7 +19,8 @@ require.config({
     },
     'localStorage': { exports: 'Store' },
     'associate': { exports: 'Backbone' },
-    'masonry': { exports: 'Masonry' }
+    'masonry': { exports: 'Masonry' },
+    'imagesLoaded': { exports: 'imagesLoaded' }
   }
 });
 
