@@ -56,7 +56,6 @@ define([
           wrap.append(buffer.$el);
           msnry.appended(buffer.$el);
         });
-
       },
       getList: function(id) {
         var add = this.getHeaderAdd(),
@@ -94,20 +93,25 @@ define([
             view.show();
           });
         });
-
-
       },
       addList: function() {
         var newList = new listEditView();
         $('body').append(newList.$el);
       },
-      editList: function(id) {},
+      editList: function(id) {
+        var list = stokLists.get(id), 
+            editList = new listEditView({model:list});
+        $('body').append(editList.$el);
+      },
       addItem: function(id) {
-        // create item edit view
         var newItem = new itemEditView();
         $('body').append(newItem.$el);
       },
-      editItem: function(id) {},
+      editItem: function(id) {
+        var item = stokItems.get(id), 
+            editItem = new itemEditView({model:item});
+        $('body').append(editItem.$el);
+      },
 
       getHeaderAdd: function() {
         var add = document.querySelector('[class^=header-add]');

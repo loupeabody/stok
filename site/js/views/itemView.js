@@ -20,7 +20,8 @@ define([
         this.listenTo(Backbone, 'refreshViews', this.remove);
       },
       render: function() {
-        this.$el.html(this.template(this.model.attributes));
+        var attrCID = _.extend(this.model.toJSON(), {cid: this.model.cid});
+        this.$el.html(this.template(attrCID));
         return this;
       }
       // showEditView: function() {}

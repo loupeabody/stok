@@ -4,13 +4,15 @@ define([
   'underscore',
   'jquery',
   'backbone',
-  'text!templates/listEditViewTemplate.html'],
-  function(_,$,Backbone,listEdit) {
+  'text!templates/listEditViewTemplate.html',
+  'text!templates/listEditViewTemplate--attr.html'],
+  function(_,$,Backbone,listEdit,listAttrEdit) {
 
     var listEditView = Backbone.View.extend({
       tagName: 'div',
       className: 'modal',
-      template: _.template(listEdit),
+      newTemplate: _.template(listEdit),
+      editTemplate: _.template(listAttrEdit),
       events: {
         'click .collect-submit'   : 'updateList',
         'click .collect-close'    : 'closeEditView',
@@ -22,10 +24,10 @@ define([
       },
       render: function() {
         if (this.model) {
-          this.$el.html(this.template(this.model.attributes));
+          this.$el.html(this.editTemplate(this.model.attributes));
         } else {
           // render without model 
-          this.$el.html(this.template());
+          this.$el.html(this.newTemplate());
         }
         return this;
       },

@@ -42,7 +42,7 @@ require([
     listView,
     Workspace) {  
 
-    // Make Defaul List!!!
+    // Make Default List!!!
     stokLists.create({title: 'All-In-One Bag'});
     // Make Default Items!!!
     var fixtureListId = stokLists.get('c1').cid;

@@ -4,13 +4,15 @@ define([
   'underscore',
   'jquery',
   'backbone',
-  'text!templates/itemEditViewTemplate.html'],
-  function(_,$,Backbone,itemEdit) {
+  'text!templates/itemEditViewTemplate.html',
+  'text!templates/itemEditViewTemplate--attr.html'],
+  function(_,$,Backbone,itemEdit,itemAttrEdit) {
 
     var itemEditView = Backbone.View.extend({
       tagName: 'div',
       className: 'modal',
-      template: _.template(itemEdit),
+      newTemplate: _.template(itemEdit),
+      editTemplate: _.template(itemAttrEdit),
       events: {
         'click .collect-submit'   : 'updateItem',
         'click .collect-close'    : 'closeEditView',
@@ -22,10 +24,10 @@ define([
       },
       render: function() {
         if (this.model) {
-          this.$el.html(this.template(this.model.attributes));
+          this.$el.html(this.editTemplate(this.model.attributes));
         } else {
           // render without model
-          this.$el.html(this.template());
+          this.$el.html(this.newTemplate());
         }
         return this;
       },
