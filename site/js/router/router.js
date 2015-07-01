@@ -83,14 +83,19 @@ define([
         _.forEach(items,function(item) {
           var buffer = new itemView({model:item}),
               view = buffer.$el;
+
           view.hide();
           wrap.append(view);
+
           imagesLoaded(view, function() {
-            view.show();
             msnry.appended(view);
+            msnry.reloadItems();
             msnry.layout();
+            view.show();
           });
         });
+
+
       },
       addList: function() {
         var newList = new listEditView();

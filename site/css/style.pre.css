@@ -113,7 +113,7 @@ body { background: var(--bg); }
   position: relative;
   width: 320px;
   padding: 5px 8px;
-  margin: 0 auto 20px;
+  margin: 0 auto 25px;
   border-radius: 2px;
   border: 3px solid #131313;
 }
