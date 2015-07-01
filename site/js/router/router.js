@@ -112,7 +112,7 @@ define([
             editItem = new itemEditView({model:item});
         $('body').append(editItem.$el);
       },
-
+      // helper functions
       getHeaderAdd: function() {
         var add = document.querySelector('[class^=header-add]');
         return add;

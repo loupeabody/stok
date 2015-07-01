@@ -19,7 +19,6 @@ define([
         'click .collect-delete'   : 'deleteList'
       },
       initialize: function() {
-        // model events
         this.render();
       },
       render: function() {
@@ -31,8 +30,19 @@ define([
         }
         return this;
       },
-      updateList: function() {
-        var inputs = this.getTitle();
+      updateList: function(e) {
+        e.preventDefault();
+        // check for model
+        var title = this.$('form')[0].elements.title.value;
+        if (this.model) {     
+          if (title.trim().length > 0) {
+            this.model.set('title',title);
+          }
+        } else {
+          // save new model
+        }
+        this.remove();
+        window.history.back();
       },
       deleteList: function(e) {
         e.preventDefault();

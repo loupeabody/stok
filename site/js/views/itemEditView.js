@@ -19,7 +19,6 @@ define([
         'click .collect-delete'   : 'deleteItem'
       },
       initialize: function() {
-        // model events
         this.render();
       },
       render: function() {
