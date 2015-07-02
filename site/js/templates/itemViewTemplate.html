@@ -1,5 +1,7 @@
         <img class="item-img" src="<%= img %>">
-        <p class="item-manufacturer"><%= manufacturer %></p>
-        <p class="item-name"><%= name %></p>
+        <marquee class="item-details" scroll="scroll" scrollamount="6">
+          <p class="item-manufacturer"><%= manufacturer %></p>
+          <p class="item-name"><%= name %></p>
+        </marquee>
         <a class="item-link" href="<%= url %>" target="_blank"><span class="item-price">$<%= price %></span><span class="item-buy">buy</span></a>
         <a class="item-edit" href="#/item/<%= cid %>/edit">edit</a>

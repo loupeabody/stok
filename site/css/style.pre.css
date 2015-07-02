@@ -201,10 +201,8 @@ body { background: var(--bg); }
 }
 
 .item-name,
-.item-price,
 .item-manufacturer,
-.item-link,
-.item-buy { 
+.item-link{ 
   display: inline;
 }
 
@@ -222,13 +220,21 @@ body { background: var(--bg); }
   font: 700 14px 'Montserrat', sans-serif;
   text-decoration: none;
 }
+/*.item-details { max-width: 180px; }*/
 .item-price {
+  position: absolute;
+  right: 40px;
+  bottom: 0;
   padding: 1px 5px 1px 4px;
   border-radius: 2px 0 0 2px;
   border: 3px solid #131313;
   border-right: none;
+  background: var(--bg);
 }
 .item-buy {
+  right: 0;
+  bottom: 0;
+  position: absolute;
   padding: 1px 5px 1px 4px;
   color: var(--bg);
   background: #131313;
