@@ -326,10 +326,7 @@ body { background: var(--bg); }
 .collect-submit:active,
 .collect-delete:hover,
 .collect-delete:focus,
-.collect-delete:active,
-.collect-close:hover,
-.collect-close:focus,
-.collect-close:active {
+.collect-delete:active {
   border: none;
   padding: 5px 6px 5px 8px;
   background: var(--bg);
@@ -347,10 +344,9 @@ body { background: var(--bg); }
   position: absolute;
   top: -25px;
   right: 0;
-  padding: 0 6px 3px;
+  padding: 0;
   background: #131313;
-  border-radius: 100%;
-  border: 2px solid var(--bg);
+  border: none;
   color: var(--bg);
   font-weight: 800;
   cursor: pointer;
@@ -360,7 +356,6 @@ body { background: var(--bg); }
 .collect-close:focus,
 .collect-close:active {
   outline: none;
-  padding: 2px 8px 5px;
 }
 
 /* 

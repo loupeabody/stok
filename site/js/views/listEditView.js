@@ -29,8 +29,7 @@ define([
           // render without model 
           this.$el.html(this.newTemplate());
         }
-
-        this.$('form')[0].elements.title.focus(); 
+ 
         return this;
       },
       updateList: function(e) {
