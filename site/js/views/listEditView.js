@@ -4,9 +4,10 @@ define([
   'underscore',
   'jquery',
   'backbone',
+  'collections/lists',
   'text!templates/listEditViewTemplate.html',
   'text!templates/listEditViewTemplate--attr.html'],
-  function(_,$,Backbone,listEdit,listAttrEdit) {
+  function(_,$,Backbone,stokLists,listEdit,listAttrEdit) {
 
     var listEditView = Backbone.View.extend({
       tagName: 'div',
@@ -28,29 +29,36 @@ define([
           // render without model 
           this.$el.html(this.newTemplate());
         }
+
+        this.$('form')[0].elements.title.focus(); 
         return this;
       },
       updateList: function(e) {
         e.preventDefault();
-        // check for model
         var title = this.$('form')[0].elements.title.value;
-        if (this.model) {     
+
+        if (this.model) {
           if (title.trim().length > 0) {
             this.model.set('title',title);
           }
         } else {
-          // save new model
+          stokLists.add({title: title});
         }
+
         this.remove();
         window.history.back();
       },
       deleteList: function(e) {
         e.preventDefault();
         if (this.model) {
-          // HTTP delete model 
+          stokLists.remove(this.model);
         }
+
+        this.remove();
+        window.location.hash = '#';
+        console.log(window.location);
+        console.log(document.location);
       },
-      getTitle: function() {},
       closeEditView: function(e) {
         e.preventDefault();
         $('body').remove('.modal');

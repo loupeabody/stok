@@ -78,5 +78,4 @@ require([
     var stokRouter = new Workspace();
     Backbone.history.start();
 
-
 });

@@ -19,7 +19,7 @@ define([
       },
       initialize: function() {
         this.setNotes();
-        stokItems.on('update', this.setNotes, this);
+        this.listenTo(stokItems,'update', this.setNotes);
         console.log(this);
       },
       setNotes: function() {
@@ -31,7 +31,7 @@ define([
         });
 
         var total = prices.reduce(function(p,c,i,a) {
-          return p + c;
+          return parseInt(p) + parseInt(c);
         },0);
 
         this.set('_no', prices.length);

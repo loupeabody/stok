@@ -22,9 +22,7 @@ define([
         var attrCID = _.extend(this.model.toJSON(), {cid: this.model.cid});
         this.$el.html(this.template(attrCID));
         return this;
-      },
-      showItemAddView: function() {}
-      // Add item to ~current~ collection
+      }
     });
 
     return listTopView;

@@ -55,6 +55,8 @@ define([
           var buffer = new listView({model:list});
           wrap.append(buffer.$el);
           msnry.appended(buffer.$el);
+          msnry.reloadItems();
+          msnry.layout();
         });
       },
       getList: function(id) {
@@ -104,7 +106,7 @@ define([
         $('body').append(editList.$el);
       },
       addItem: function(id) {
-        var newItem = new itemEditView();
+        var newItem = new itemEditView(id);
         $('body').append(newItem.$el);
       },
       editItem: function(id) {
