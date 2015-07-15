@@ -75,7 +75,10 @@ As of right now, I can't think of anything idle time can be spent doing, so I'll
 
 ####Summary
 
+- **Try using Zepto to cut down on load time**. JQuery takes too long to evaluate, maybe Zepto can help lower the load time.
+- **The rendering of item views is a bottleneck**. Discover which parts of the rendering implementation are taking up the most time and fix them.
 
+First thing I'm going to do next is make the updated design. Once that's performant on its own (without being hooked into the app), I'll tackle the items above.
 
 ---
 
