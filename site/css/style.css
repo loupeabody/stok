@@ -213,7 +213,7 @@ body {
 .item-img {
   position: relative;
   width: 100%;
-  margin: 0 0 10px 0;
+  margin: 0 0 5px 0;
   -webkit-filter: brightness(2);
   filter: brightness(2);
   -webkit-filter: grayscale(1);
@@ -221,43 +221,40 @@ body {
   z-index: -1;
 }
 
-.item-name,
 .item-manufacturer,
-.item-link {
-  display: inline;
+.item-name {
+  width: 200px;
 }
-
-/* control width, change markup too */
 
 .item-manufacturer {
-  font: 700 16px/16px 'Montserrat', sans-serif;
-}
-
-.item-manufacturer:after {
-  content: ' -';
+  margin: 0 0 1px 0;
+  font: 800 10px 'Montserrat', sans-serif;
+  text-transform: uppercase;
 }
 
 .item-name {
-  font: 700 16px/16px 'Montserrat', sans-serif;
+  margin: 0;
+  font: 700 14px/14px 'Montserrat', sans-serif;
 }
 
 .item-link {
-  position: relative;
-  float: right;
-  display: inline-block;
+  display: block;
+  position: absolute;
+  width: auto;
+  height: auto;
+  right: 0;
+  bottom: 3px;
   margin: 0 0 0 10px;
   color: #131313;
-  font: 700 14px 'Montserrat', sans-serif;
+  font: 700 12px 'Montserrat', sans-serif;
   text-decoration: none;
 }
 
-/*.item-details { max-width: 180px; }*/
-
 .item-price {
   position: absolute;
-  right: 40px;
+  right: 38px;
   bottom: 0;
-  padding: 1px 5px 1px 4px;
+  padding: 1px 4px;
   border-radius: 2px 0 0 2px;
   border: 3px solid #131313;
   border-right: none;
@@ -273,7 +270,7 @@ body {
   background: #131313;
   border-radius: 0 2px 2px 0;
   border: 3px solid #131313;
-  font: 700 14px 'Montserrat', sans-serif;
+  font: 700 12px 'Montserrat', sans-serif;
 }
 
 .item-link:active,
