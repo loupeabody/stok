@@ -4,8 +4,8 @@ server = restify.createServer({});
 
 // Serving the design assets
 server.get(/^\/?.*/, restify.serveStatic({
-  directory: __dirname + '/site',
-  default: 'index.html',
+  directory: __dirname + '/prototypes',
+  default: 'itemFab.html',
   maxAge: 0
 }));
 

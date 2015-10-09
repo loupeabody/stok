@@ -8,15 +8,7 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "restify": "*",
-    "mongoose": "*"
-  },
   "devDependencies": {
-    "livereload": "*",
-    "gulp": "*",
-    "gulp-livereload": "*",
-    "gulp-rename": "*",
-    "gulp-myth": "*"
+    "restify": "^4.0.3"
   }
 }
