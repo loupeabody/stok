@@ -1,0 +1,143 @@
+html, body {
+	position: relative;
+	width: 100%;
+	margin: 0
+}
+
+html { box-sizing: border-box }
+
+*,
+*:before,
+*:after { box-sizing: inherit; }
+
+body {
+	color: #131313;
+	background-color: cyan;
+	font-family: 'Montserrat';
+}
+
+/*
+ * UTILITY
+ */
+
+.button,
+.button--dark {
+	background-color: none;
+	color: cyan;
+	border-radius: 2px;
+}
+
+.button--dark {
+	border: 2px solid cyan;
+	padding: 3px 5px;
+	background-color: #131313;
+}
+
+.button--dark:hover {
+	background: cyan;
+	color: #131313;
+}
+
+/*
+ * FAB BUTTON
+ */
+.fab {
+	position: relative;
+	margin: 45px auto;
+	width: 250px;
+	height: 400px;
+	-webkit-filter: url("#goo");
+	filter: url("#goo");
+}
+.item-edit,
+.edit-button {
+	background: #131313;
+	border-radius: 100%;
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	padding: 7px 8px 8px 8px;
+	line-height: 40px;
+	transform: translate3d(0,0,0);
+	transition: all cubic-bezier(0.190, 1.000, 0.220, 1.000) 200ms; 
+	z-index: 1;
+}
+
+.item-edit {
+	opacity: 0;
+	z-index: 2;
+	cursor: pointer;
+}
+
+.edit-button {
+	box-shadow: 0 10px 8px rgba(0,0,0,0.25);
+}
+
+.cross {
+	fill: cyan;
+	transform: tanslate3d(0,0,0);
+	transition: transform cubic-bezier(0.190, 1.000, 0.220, 1.000) 100ms;
+}
+
+.item-edit:checked + .edit-button .cross {
+	transform: rotate(45deg) scale(0.95);
+}
+.item-edit:checked ~ .item-update {
+	transform: translate3d(15%,32%,0) scale(1);
+}
+/*
+ * UPDATE
+ */
+
+.item-update {
+	display: block;
+	width: 200px;
+	padding: 15px 15px 35px;
+	border-radius: 4px;
+	background-color: #131313;
+	color: cyan;
+	z-index: -4;
+	transition: transform cubic-bezier(0.190, 1.000, 0.220, 1.000) 300ms;
+	transform: translate3d(65%,83%,0) scale(0.05);
+	box-shadow: 0 10px 8px rgba(0,0,0,0.25);
+}
+.update-label,
+.update-input {
+	display: block;
+}
+.update-label {
+	margin-bottom: 3px;
+	font-size: 8px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	line-height: auto;
+	text-align: left;
+}
+.update-input {
+	width: 100%;
+	height: 20px;
+	padding: 5px;
+	margin-bottom: 14px;
+	border: none;
+	border-radius: 1px;
+	outline: none;
+	background-color: cyan;
+	font-family: 'Montserrat';
+}
+.update-submit,
+.update-delete {
+	font-size: 10px;
+	cursor: pointer;
+}
+
+.update-submit {
+	float: right;
+	clear: right;
+}
+
+.update-delete {
+	float: left;
+	clear: left;
+}

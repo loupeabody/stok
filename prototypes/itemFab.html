@@ -9,5 +9,37 @@
 		<link rel="stylesheet" href="style.css">
 	</head>
 	<body>
+		<nav class="fab">
+			<input type="checkbox" href="#" class="item-edit" name="item-edit">
+			<label class="edit-button" for="item-edit">
+				<svg class="cross" xmlns="http://www.w3.org/2000/svg" version="1.1" x="0" y="0" viewBox="0 0 20 20" xml:space="preserve"><path d="M11.8 8.4c-0.1 0-0.2-0.1-0.2-0.2V2.8c0-0.2-0.1-0.3-0.3-0.3H8.7c-0.2 0-0.3 0.1-0.3 0.3v5.4c0 0.1-0.1 0.2-0.2 0.2H2.8c-0.2 0-0.3 0.1-0.3 0.3v2.6c0 0.2 0.1 0.3 0.3 0.3h5.4c0.1 0 0.2 0.1 0.2 0.2v5.4c0 0.2 0.1 0.3 0.3 0.3h2.6c0.2 0 0.3-0.1 0.3-0.3v-5.4c0-0.1 0.1-0.2 0.2-0.2h5.4c0.2 0 0.3-0.1 0.3-0.3V8.7c0-0.2-0.1-0.3-0.3-0.3H11.8z"/></svg>
+			</label>
+			<form class="item-update">
+				<label class="update-label">Name</label>
+				<input class="update-input" name="name" type="text">
+				<label class="update-label">Manufacturer</label>
+				<input class="update-input" name="manufacturer" type="text">
+				<label class="update-label">Price</label>
+				<input class="update-input" name="price" type="text">
+				<label class="update-label">URL</label>
+				<input class="update-input" name="url" type="text">
+				<label class="update-label">IMG</label>
+				<input class="update-input" name="img" type="text">
+				<input class="update-submit button--dark" type="submit" value="add">
+				<button class="update-delete button--dark">delete</button>
+			</form>
+		</nav>
+
+		<!-- filters -->
+		<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+				<defs>
+					<filter id="goo">
+							<feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="3" />
+							<feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 15 -7" result="goo" />
+							<feComposite in2="goo" in="SourceGraphic" result="mix" />
+					</filter>
+				</defs>
+		</svg>
+
 	</body>
 </html>
