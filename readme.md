@@ -1,5 +1,5 @@
 #stok
-[loopy.me/stok](loopy.me/stok)    
+[loopy.me/stok](http://loopy.me/stok)    
 An exercise project for learning how to use backbone.js and build perfomant web apps.
 
 
